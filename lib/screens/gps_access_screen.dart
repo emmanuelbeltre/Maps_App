@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/blocs.dart';
 
 class GpsAccessScreen extends StatelessWidget {
+  const GpsAccessScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,20 +33,15 @@ class _AccessButton extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Es Necesario el acceso al GPS'),
+        const Text('Es necesario el acceso a GPS'),
         MaterialButton(
-            child: const Text(
-              "Solicitar Acceso",
-              style: TextStyle(color: Colors.white),
-            ),
+            child: const Text('Solicitar Acceso',
+                style: TextStyle(color: Colors.white)),
             color: Colors.black,
             shape: const StadiumBorder(),
             elevation: 0,
             splashColor: Colors.transparent,
             onPressed: () {
-              //TODO: Por hacer
-
-              // final gpsBloc = BlocProvider.of<GpsBloc>(context);
               final gpsBloc = BlocProvider.of<GpsBloc>(context);
               gpsBloc.askGpsAccess();
             })
